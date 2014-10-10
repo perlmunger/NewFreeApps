@@ -15,6 +15,11 @@
 		B368164619E76BAC00446E53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B368164519E76BAC00446E53 /* Images.xcassets */; };
 		B368164919E76BAC00446E53 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B368164719E76BAC00446E53 /* LaunchScreen.xib */; };
 		B368165519E76BAC00446E53 /* NewFreeAppsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B368165419E76BAC00446E53 /* NewFreeAppsTests.swift */; };
+		B368166219E76D0A00446E53 /* _EntryMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B368166019E76D0A00446E53 /* _EntryMO.swift */; };
+		B368166319E76D0A00446E53 /* EntryMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = B368166119E76D0A00446E53 /* EntryMO.swift */; };
+		B368166519E76D2500446E53 /* BaseManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B368166419E76D2500446E53 /* BaseManagedObject.swift */; };
+		B39B1C5A19E76E65005175F5 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39B1C5919E76E65005175F5 /* DataManager.swift */; };
+		B39B1C5C19E77977005175F5 /* UIImageView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39B1C5B19E77977005175F5 /* UIImageView+Additions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		B368164E19E76BAC00446E53 /* NewFreeAppsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewFreeAppsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B368165319E76BAC00446E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B368165419E76BAC00446E53 /* NewFreeAppsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFreeAppsTests.swift; sourceTree = "<group>"; };
+		B368166019E76D0A00446E53 /* _EntryMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = _EntryMO.swift; sourceTree = "<group>"; };
+		B368166119E76D0A00446E53 /* EntryMO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryMO.swift; sourceTree = "<group>"; };
+		B368166419E76D2500446E53 /* BaseManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManagedObject.swift; sourceTree = "<group>"; };
+		B39B1C5919E76E65005175F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = NewFreeApps/DataManager.swift; sourceTree = SOURCE_ROOT; };
+		B39B1C5B19E77977005175F5 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,9 @@
 		B368163619E76BAC00446E53 /* NewFreeApps */ = {
 			isa = PBXGroup;
 			children = (
+				B39B1C5D19E78DAB005175F5 /* Extensions */,
+				B368165F19E76D0A00446E53 /* ModelObjects */,
+				B39B1C5919E76E65005175F5 /* DataManager.swift */,
 				B368163919E76BAC00446E53 /* AppDelegate.swift */,
 				B368163E19E76BAC00446E53 /* MasterViewController.swift */,
 				B368164019E76BAC00446E53 /* DetailViewController.swift */,
@@ -118,6 +131,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B368165F19E76D0A00446E53 /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				B368166019E76D0A00446E53 /* _EntryMO.swift */,
+				B368166119E76D0A00446E53 /* EntryMO.swift */,
+				B368166419E76D2500446E53 /* BaseManagedObject.swift */,
+			);
+			path = ModelObjects;
+			sourceTree = "<group>";
+		};
+		B39B1C5D19E78DAB005175F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B39B1C5B19E77977005175F5 /* UIImageView+Additions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +156,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B368165819E76BAC00446E53 /* Build configuration list for PBXNativeTarget "NewFreeApps" */;
 			buildPhases = (
+				B368165E19E76C8600446E53 /* Generate Managed Objects */,
 				B368163019E76BAC00446E53 /* Sources */,
 				B368163119E76BAC00446E53 /* Frameworks */,
 				B368163219E76BAC00446E53 /* Resources */,
@@ -213,14 +245,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B368165E19E76C8600446E53 /* Generate Managed Objects */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Managed Objects";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#cd \"$PROJECT_DIR/NewFreeApps\" && /usr/local/bin/mogenerator --swift --base-class=BaseManagedObject -m NewFreeApps.xcdatamodeld/NewFreeApps.xcdatamodel  --output-dir ./ModelObjects";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B368163019E76BAC00446E53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B368163D19E76BAC00446E53 /* NewFreeApps.xcdatamodeld in Sources */,
+				B39B1C5A19E76E65005175F5 /* DataManager.swift in Sources */,
 				B368163A19E76BAC00446E53 /* AppDelegate.swift in Sources */,
+				B368166219E76D0A00446E53 /* _EntryMO.swift in Sources */,
+				B368166519E76D2500446E53 /* BaseManagedObject.swift in Sources */,
 				B368163F19E76BAC00446E53 /* MasterViewController.swift in Sources */,
+				B368166319E76D0A00446E53 /* EntryMO.swift in Sources */,
+				B39B1C5C19E77977005175F5 /* UIImageView+Additions.swift in Sources */,
 				B368164119E76BAC00446E53 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +467,7 @@
 				B368165A19E76BAC00446E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B368165B19E76BAC00446E53 /* Build configuration list for PBXNativeTarget "NewFreeAppsTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +476,7 @@
 				B368165D19E76BAC00446E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
