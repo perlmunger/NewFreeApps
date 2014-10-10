@@ -50,6 +50,7 @@
 		B368166419E76D2500446E53 /* BaseManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseManagedObject.swift; sourceTree = "<group>"; };
 		B39B1C5919E76E65005175F5 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = NewFreeApps/DataManager.swift; sourceTree = SOURCE_ROOT; };
 		B39B1C5B19E77977005175F5 /* UIImageView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Additions.swift"; sourceTree = "<group>"; };
+		B39B1C5E19E79390005175F5 /* LearningSwift.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = LearningSwift.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +74,7 @@
 		B368162B19E76BAC00446E53 = {
 			isa = PBXGroup;
 			children = (
+				B39B1C5E19E79390005175F5 /* LearningSwift.playground */,
 				B368163619E76BAC00446E53 /* NewFreeApps */,
 				B368165119E76BAC00446E53 /* NewFreeAppsTests */,
 				B368163519E76BAC00446E53 /* Products */,
