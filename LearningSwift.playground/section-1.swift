@@ -36,7 +36,7 @@ var sorted = (shiny as NSArray).sortedArrayUsingDescriptors([NSSortDescriptor(ke
 sorted
 
 // Sort alpha
-var newSorted = shiny.sorted({countElements($0) < countElements($1)})
+var newSorted = shiny.sort({ $0.characters.count < $1.characters.count })
 newSorted
 
 
@@ -56,7 +56,7 @@ class CustomClass {
 }
 
 func >(custom1:CustomClass, custom2:CustomClass) -> Bool{
-    return countElements(custom1.color) > countElements(custom1.color)
+    return custom1.color.characters.count > custom1.color.characters.count
 }
 
 var c = "color"
@@ -83,7 +83,7 @@ strings
 func createLayerOfType(clazz:CALayer.Type) -> CALayer {
     
     // Create a layer dynamically
-    var layer = clazz()
+    let layer = clazz.init()
     
     // We know that all layers share a common base set of properties
     layer.bounds = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 200.0)
@@ -96,17 +96,17 @@ func createLayerOfType(clazz:CALayer.Type) -> CALayer {
     if layer is CAGradientLayer {
         // Let's say our type is a Gradient Layer
         // Typecast this local variable
-        var gradientLayer = layer as CAGradientLayer
+        let gradientLayer = layer as! CAGradientLayer
         gradientLayer.colors = [UIColor.orangeColor().CGColor as AnyObject, UIColor.yellowColor().CGColor as AnyObject]
     } else if layer is CAShapeLayer {
         // Let's say our type is a Shape Layer
         // Typecast this local variable
-        var shapeLayer = layer as CAShapeLayer
+        let shapeLayer = layer as! CAShapeLayer
         shapeLayer.path = UIBezierPath(rect: layer.bounds).CGPath
     } else if layer is CATextLayer {
         // Let's say our type is a Text Layer
         // Typecast this local variable
-        var textLayer = layer as CATextLayer
+        let textLayer = layer as! CATextLayer
         textLayer.string = "Hello World!"
     }
     
@@ -114,10 +114,10 @@ func createLayerOfType(clazz:CALayer.Type) -> CALayer {
 }
 
 var gradientLayer = createLayerOfType(CAGradientLayer.self)
-(gradientLayer as CAGradientLayer).colors.count
+(gradientLayer as! CAGradientLayer).colors!.count
 
 var shapeLayer = createLayerOfType(CAShapeLayer.self)
-(shapeLayer as CAShapeLayer).path
+(shapeLayer as! CAShapeLayer).path
 
 var textLayer = createLayerOfType(CATextLayer.self)
-(textLayer as CATextLayer).string
+(textLayer as! CATextLayer).string
